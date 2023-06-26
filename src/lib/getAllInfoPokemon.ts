@@ -84,9 +84,9 @@ export async function getAllInfoPokemonPaginated(
 export async function getEvolutionPokemonById(pokemon: Pokemon) {
   if (
     cache.has(pokemon.species.url) &&
-    revalidate > Date.now() - cache.get(pokemon.id).time
+    revalidate > Date.now() - cache.get(pokemon.species.url).time
   ) {
-    return cache.get(pokemon.id).evolutionData;
+    return cache.get(pokemon.species.url).evolutionData;
   }
 
   try {
