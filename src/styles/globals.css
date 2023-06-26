@@ -1,0 +1,36 @@
+:root {
+    --primary: #f5f5f5;
+    --secondary: theme('colors.red.500', red[500]);
+  }
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+}
+
+
+
+.containerLoader {
+  @apply flex flex-col items-center justify-center h-screen;
+
+  & p {
+    @apply text-gray-800 font-bold text-2xl mb-1;
+  }
+}

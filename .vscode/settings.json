@@ -1,0 +1,25 @@
+{
+  "files.exclude": {
+    ".git": true
+  },
+  "npm.packageManager": "npm",
+  "emmet.excludeLanguages": [],
+  "git.ignoreLimitWarning": true,
+  "git.branchProtection": ["main"],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // no update, please!
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // no update, please!
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // no update, please!
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // no update, please!
+    "editor.formatOnSave": true
+  }
+}
