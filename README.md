@@ -1,8 +1,8 @@
 # Pokedex
 
-## Hosted website
-
 [![E2E tests](https://github.com/JySa65/pokedex-web/actions/workflows/cypress.yml/badge.svg?branch=main&event=push)](https://github.com/JySa65/pokedex-web/actions/workflows/cypress.yml)
+
+## Hosted website
 
 [https://pokedex-web-nine.vercel.app/](https://pokedex-web-nine.vercel.app/)
 
