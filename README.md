@@ -1,5 +1,11 @@
 # Pokedex
 
+## Hosted website
+
+[https://pokedex-web-nine.vercel.app/](https://pokedex-web-nine.vercel.app/)
+
+<br />
+
 ## Run the development server:
 
 ```bash
@@ -33,3 +39,4 @@ npm run cy:dev_run
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Cypress](https://www.cypress.io/)
 - [Pokedex API](https://pokeapi.co/)
+
