@@ -1,10 +1,15 @@
-import { Pokemon, PokemonsResponse } from "../Interfaces/pokemon";
+import {
+  EvolutionChain,
+  Pokemon,
+  PokemonSpecies,
+  PokemonsResponse,
+} from "../Interfaces/pokemon";
 import { getPokemons, getPokemonsPaginated } from "../data/actions";
 import http from "../data/http";
-
-export const revalidate = 3600; // revalidate every hour
+import { getSpecies } from "../utils";
 
 const cache = new Map();
+export const revalidate = 3600; // revalidate every hour
 
 const _getPokemon = async (result: PokemonsResponse["results"]) => {
   const pokemonInfo = result.map(async (pokemon) => {
@@ -73,5 +78,40 @@ export async function getAllInfoPokemonPaginated(
       next: null,
       previous: null,
     };
+  }
+}
+
+export async function getEvolutionPokemonById(pokemon: Pokemon) {
+  if (
+    cache.has(pokemon.species.url) &&
+    revalidate > Date.now() - cache.get(pokemon.id).time
+  ) {
+    return cache.get(pokemon.id).evolutionData;
+  }
+
+  try {
+    const { evolution_chain } = (await http.get(
+      pokemon.species.url
+    )) as PokemonSpecies;
+    const { chain } = (await http.get(evolution_chain.url)) as EvolutionChain;
+    const data = getSpecies(chain);
+    const url = (id: string) =>
+      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    const pokemonWithImage = data.map((pokemon, index) => {
+      const splitUrl = pokemon.url.split("/");
+      const id = pokemon.url.split("/")[splitUrl.length - 2];
+      return {
+        ...pokemon,
+        image: url(id),
+      };
+    });
+    cache.set(pokemon.species.url, {
+      evolutionData: pokemonWithImage,
+      time: Date.now(),
+    });
+
+    return pokemonWithImage;
+  } catch (error) {
+    return [];
   }
 }

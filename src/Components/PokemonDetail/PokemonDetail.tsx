@@ -9,6 +9,7 @@ import Card from "../Card";
 import { capitalizeFirstLetter } from "@/src/utils";
 import InfoItem from "./InfoItem";
 import Sprites from "./Sprites";
+import Evolutions from "./Evolutions";
 
 const PokemosDetail = ({ pokemon }: { pokemon: Pokemon }) => {
   const image =
@@ -124,6 +125,16 @@ const PokemosDetail = ({ pokemon }: { pokemon: Pokemon }) => {
                   color={palette.data.lightMuted}
                 />
                 <Sprites sprites={pokemon.sprites ?? {}} />
+
+                <InfoItem
+                  label="Evolutions"
+                  value={""}
+                  color={palette.data.lightMuted}
+                />
+                <Evolutions
+                  pokemon={pokemon}
+                  //  evolutions={pokemon.evolutions ?? []}
+                />
               </div>
             </div>
           </div>
