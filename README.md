@@ -34,6 +34,37 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 npm run cy:dev_run
 ```
 
+## For login
+```json
+[
+  {
+    "name": "John Doe",
+    "email": "john_doe@gmail.com",
+    "password": "123456",
+    "isActive": true
+  },
+  {
+    "name": "Jane Doe",
+    "email": "jane_doe@gmail.com",
+    "password": "123456",
+    "phone": "1234567890",
+  },
+  {
+    "name": "Ramon Sanchez",
+    "email": "jysa65.dev@gmail.com",
+    "password": "123456",
+  },
+  {
+    "name": "Arturo Sanchez",
+    "email": "hola@gmail.com",
+    "password": "hola1234",
+    "isActive": true
+  }
+]
+
+```
+
+
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/)
